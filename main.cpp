@@ -35,7 +35,14 @@ public:
     }
 
     void student_list(){
-        
+
+    ifstream file("listname.txt");
+
+    if (file.is_open()){
+        cout << file.rdbuf();
+    }
+
+        file.close();
     }
 
 };
@@ -44,7 +51,7 @@ int main(){
     Student student;
     student.Create_student();
     cout << endl;
-
+    student.student_list();
 
 
 
