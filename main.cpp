@@ -35,14 +35,19 @@ public:
     }
 
     void student_list(){
-
+    system("clear");
     ifstream file("listname.txt");
-
+    int num;
     if (file.is_open()){
         cout << file.rdbuf();
     }
-
-        file.close();
+    file.close();
+    cout << "Please enter 1 to exit : ";
+    cin >> num;
+    if (num == 1){
+        system("clear");
+    }
+        
     }
 
 };
@@ -52,7 +57,7 @@ int main(){
     Student student1;
     int num, ch;
 	do {
-        
+        system("clear");
 		cout << endl;
 		cout << "\t\t" << "*1) Add studet " << endl;
         cout << "\t\t" << "*2) show list student " << endl;
