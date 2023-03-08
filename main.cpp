@@ -48,12 +48,62 @@ public:
 };
 
 int main(){
-    Student student;
-    student.Create_student();
-    cout << endl;
-    student.student_list();
+    
+    Student student1;
+    int num, ch;
+	do {
+        
+		cout << endl;
+		cout << "\t\t" << "*1) Add studet " << endl;
+        cout << "\t\t" << "*2) show list student " << endl;
+		cout << "\t\t" << "*3) Remove a student " << endl;
+		cout << "\t\t" << "*4) Search a student " << endl;
+		cout << "\t\t" << "*5) Add Course " << endl;
+		cout << "\t\t" << "*6) rmove Course " << endl;
+		cout << "\t\t" << "*7) Search a Course " << endl;
+		cout << "\t\t" << "*8) " << endl;
+		cout << "\t\t" << "*9) Exit " << endl;
+ 		cout << endl;
+		cout << "\t\t" << "Enter your  choice: " ;
+		cin >> ch;
+		cout << endl;
 
+		switch(ch){
+			case 1:
+				student1.Create_student();
+				break;
+			case 2:
+                student1.student_list();
+				break;
+			case 3:
 
+				break;
+			case 4:
+
+				break;
+			case 5:
+
+				break;
+			case 6:
+
+				break;
+			case 7:
+
+				break;
+			case 8:
+
+				break;
+			case 9:
+				system("clear"); //i use linux
+				cout << "by by ";
+				break;
+			default:
+				cout << "select Your option (1-9)";
+				break;	
+		}
+
+	} while(ch!=9);
+	
 
 
     return 0;
