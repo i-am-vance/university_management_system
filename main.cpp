@@ -12,7 +12,7 @@ protected:
 public:
     void Create_student(){
         fstream file;
-        file.open("listname.txt", ios::out);
+        file.open("listname.txt", ios::out | ios::app);
         int id_in; 
         string farst_name;
         string last_name;
@@ -32,10 +32,11 @@ public:
         file << id << endl;
         file << farstname << " " << lastname << endl; 
         file.close();
-        
-
     }
 
+    void student_list(){
+        
+    }
 
 };
 
