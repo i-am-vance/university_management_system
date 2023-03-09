@@ -12,13 +12,32 @@ protected:
 public:
     void Create_student(){
         fstream file;
-        file.open("listname.txt", ios::out | ios::app);
-        int id_in; 
+        fstream file_ido;
+        fstream file_idi;
+
+        int id = 0;
+        int id_out;
+
+        string id_str;
+
         string farst_name;
         string last_name;
-        cout << "Enter a id :";
-        cin >> id_in;
-        id = id_in;
+
+        file.open("listname.txt", ios::out | ios::app);
+        file_idi.open("id.txt", ios::in);
+
+        if (!file_idi){
+            file_ido.open("id.txt", ios::out);
+            file_ido << id;
+            file_ido.close();
+        }
+
+        while(getline(file_idi, id_str)){
+        }
+        id_out = atoi(id_str.c_str());
+        id_out++;
+
+        cout << "id :" << id_out;
 
         cout << endl << "Enter the first name :";
         cin >> farst_name;
@@ -29,9 +48,15 @@ public:
         lastname = last_name;
 
         
-        file << id << endl;
-        file << farstname << " " << lastname << endl; 
+        file << id_out << endl;
+        file << farstname << " " << lastname << endl;
+
+        file_ido.open("id.txt", ios::out);
+        file_ido << id_out;
+
+        file_ido.close();
         file.close();
+        file_idi.close();
     }
 
     void student_list(){
@@ -47,6 +72,9 @@ public:
     if (num == 1){
         system("clear");
     }
+        
+    }
+    void find_student(){
         
     }
 
