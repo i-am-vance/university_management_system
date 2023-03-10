@@ -60,17 +60,21 @@ public:
     }
 
     void student_list(){
+
     system("clear");
+    string exit;
     ifstream file("listname.txt");
     int num;
     if (file.is_open()){
         cout << file.rdbuf();
     }
     file.close();
-    cout << "Please enter 1 to exit : ";
-    cin >> num;
-    if (num == 1){
-        system("clear");
+    while(true){
+        cout << "Type exit or q :" << endl;
+        cin >> exit;
+        if (exit == "exit" || exit == "q"){
+            break;
+        }
     }
         
     }
@@ -116,7 +120,7 @@ public:
         file1.close();
         file2.close();
         while(true){
-            cout << "Type exit" << endl;
+            cout << "Type exit or q :" << endl;
             cin >> exit;
             if (exit == "exit" || exit == "q"){
                 break;
