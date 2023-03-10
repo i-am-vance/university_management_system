@@ -32,8 +32,8 @@ public:
             file_ido.close();
         }
 
-        while(getline(file_idi, id_str)){
-        }
+        while(getline(file_idi, id_str)){}
+
         id_out = atoi(id_str.c_str());
         id_out++;
 
@@ -62,13 +62,18 @@ public:
     void student_list(){
 
     system("clear");
-    string exit;
+    
     ifstream file("listname.txt");
+
+    string exit;
     int num;
+
     if (file.is_open()){
         cout << file.rdbuf();
     }
+
     file.close();
+    
     while(true){
         cout << "Type exit or q :" << endl;
         cin >> exit;
