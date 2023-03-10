@@ -75,6 +75,53 @@ public:
         
     }
     void find_student(){
+
+        system("clear");
+
+        fstream file1;
+	    fstream file2;
+
+	    string id_in;
+        string id;
+	    string name;
+
+        string exit;
+
+	    int number;
+	    int num1 = 1;
+	    int num2 = 1;
+
+        cout << "Enter the student ID :";
+	    cin >> id_in;
+	    file1.open("listname.txt", ios::in);
+	    file2.open("listname.txt", ios::in);
+	    if (!file1){
+		    cout << "file not found";
+	    }else{
+		    while(getline(file1, id)){
+			    if (num1%2 != 0 && id_in == id){
+			 	    number = num1;
+			    }
+			num1++;
+		    }
+		    number++;
+		    while(getline(file2, name)){
+			    if (num2 == number){
+				    cout << name << endl;
+			    }
+			num2++;
+		    }
+		
+	    }
+        file1.close();
+        file2.close();
+        while(true){
+            cout << "Type exit" << endl;
+            cin >> exit;
+            if (exit == "exit" || exit == "q"){
+                break;
+            }
+        }
         
     }
 
@@ -89,8 +136,8 @@ int main(){
 		cout << endl;
 		cout << "\t\t" << "*1) Add studet " << endl;
         cout << "\t\t" << "*2) show list student " << endl;
-		cout << "\t\t" << "*3) Remove a student " << endl;
-		cout << "\t\t" << "*4) Search a student " << endl;
+		cout << "\t\t" << "*3) Search a student " << endl;
+		cout << "\t\t" << "*4)  " << endl;
 		cout << "\t\t" << "*5) Add Course " << endl;
 		cout << "\t\t" << "*6) rmove Course " << endl;
 		cout << "\t\t" << "*7) Search a Course " << endl;
@@ -109,7 +156,7 @@ int main(){
                 student1.student_list();
 				break;
 			case 3:
-
+                student1.find_student();
 				break;
 			case 4:
 
