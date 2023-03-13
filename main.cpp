@@ -133,7 +133,76 @@ public:
         }
         
     }
+    void remove_student(){
+        fstream file1;
+	    fstream file2;
 
+	    ofstream ofs1;
+	    ofstream ofs2;
+
+	    string filename = "listname.txt";
+	    string line;
+
+	    string id_in;
+	    string id;
+	    string name;
+
+	    char q;
+
+	    int lineToRemove;
+	    int lineNumber = 0;
+
+	    int number;
+	    int num1 = 1;
+	    int num2 = 1;
+
+	    cout << "Enter the student id :";
+	    cin >> id_in;
+	    file1.open("listname.txt", ios::in);
+	    file2.open("listname.txt", ios::in);
+	    if (!file1){
+		    cout << "file not found";
+	    }else{
+		    while(getline(file1, id)){
+			    if (num1%2 != 0 && id_in == id){
+				    number = num1;
+			    }
+		    num1++;
+		    }
+		    lineToRemove = number;
+		    number++;
+		    while(getline(file2, name)){
+			    if (num2 == number){
+				    cout << name << endl;
+			    }
+		    num2++;
+		    }
+	    }
+	    cout << "Are you sure of deleting this student? y/n :";
+	    cin >> q;
+	    if (q == 'y'){
+		    ifstream inFile(filename);
+		    ofstream tempFile("temp.txt");
+
+		    while (getline(inFile, line)) {
+			    ++lineNumber;
+
+			    if (lineNumber == lineToRemove || lineNumber == lineToRemove + 1){
+				    continue;
+			    }
+
+			    tempFile << line << endl;
+		    }
+		    inFile.close();
+		    tempFile.close();
+
+		    remove(filename.c_str());
+		    rename("temp.txt", filename.c_str());
+	    }
+
+	    file1.close();
+	    file2.close();
+    }
 };
 
 int main(){
@@ -146,7 +215,7 @@ int main(){
 		cout << "\t\t" << "*1) Add studet " << endl;
         cout << "\t\t" << "*2) show list student " << endl;
 		cout << "\t\t" << "*3) Search a student " << endl;
-		cout << "\t\t" << "*4)  " << endl;
+		cout << "\t\t" << "*4) Remove the student " << endl;
 		cout << "\t\t" << "*5) Add Course " << endl;
 		cout << "\t\t" << "*6) rmove Course " << endl;
 		cout << "\t\t" << "*7) Search a Course " << endl;
@@ -168,7 +237,7 @@ int main(){
                 student1.find_student();
 				break;
 			case 4:
-
+                student1.remove_student();
 				break;
 			case 5:
 
