@@ -5,10 +5,6 @@ using namespace std;
 
 class Student
 {
-protected:
-    int id;
-    string farstname;
-    string lastname;
 public:
     void Create_student(){
         fstream file;
@@ -41,15 +37,12 @@ public:
 
         cout << endl << "Enter the first name :";
         cin >> farst_name;
-        farstname = farst_name;
 
         cout << endl << "Enter the last name :";
         cin >> last_name;
-        lastname = last_name;
-
         
         file << id_out << endl;
-        file << farstname << " " << lastname << endl;
+        file << farst_name << " " << last_name << endl;
 
         file_ido.open("id.txt", ios::out);
         file_ido << id_out;
