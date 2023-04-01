@@ -201,7 +201,7 @@ public:
 int main(){
     
     Student student1;
-    int num, ch;
+    int ch;
 	do {
         system("clear");
 		cout << endl;
