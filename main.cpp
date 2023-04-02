@@ -58,6 +58,10 @@ public:
 		practical_out = to_string(id_out);
 		practical_out.append(practical);
 
+		file_practical.open(practical_out, ios::out);
+		
+		file_theoretical.open(theoretical_out, ios::out);
+
 		file_practical.close();
 		file_theoretical.close();
 
