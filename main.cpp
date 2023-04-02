@@ -202,6 +202,11 @@ class Course : public Student
 {
 
 };
+
+class TheoreticalCourse : public Course
+{
+
+};
 int main(){
     
     Student student1;
