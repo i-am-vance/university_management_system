@@ -198,6 +198,10 @@ public:
     }
 };
 
+class Course : public Student
+{
+
+};
 int main(){
     
     Student student1;
