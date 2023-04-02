@@ -207,6 +207,12 @@ class TheoreticalCourse : public Course
 {
 
 };
+
+class PracticalCourse : public Course
+{
+
+};
+
 int main(){
     
     Student student1;
