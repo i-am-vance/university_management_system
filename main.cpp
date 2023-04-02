@@ -10,6 +10,8 @@ public:
         fstream file;
         fstream file_ido;
         fstream file_idi;
+		fstream file_theoretical;
+		fstream file_practical;
 
         int id = 0;
         int id_out;
@@ -18,6 +20,12 @@ public:
 
         string farst_name;
         string last_name;
+
+		string theoretical = "theoretical.txt";
+		string practical = "practical.txt";
+
+		string theoretical_out;
+		string practical_out;
 
         file.open("listname.txt", ios::out | ios::app);
         file_idi.open("id.txt", ios::in);
@@ -43,6 +51,15 @@ public:
         
         file << id_out << endl;
         file << farst_name << " " << last_name << endl;
+
+		theoretical_out = to_string(id_out);
+		theoretical_out.append(theoretical);
+
+		practical_out = to_string(id_out);
+		practical_out.append(practical);
+
+		file_practical.close();
+		file_theoretical.close();
 
         file_ido.open("id.txt", ios::out);
         file_ido << id_out;
