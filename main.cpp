@@ -161,6 +161,12 @@ public:
 	    string id;
 	    string name;
 
+		string theoretical = "theoretical.txt";
+		string practical = "practical.txt";
+
+		string theoretical_out;
+		string practical_out;
+
 	    char q;
 
 	    int lineToRemove;
@@ -212,6 +218,16 @@ public:
 
 		    remove(filename.c_str());
 		    rename("temp.txt", filename.c_str());
+
+			theoretical_out = id_in;
+			theoretical_out.append(theoretical);
+
+			practical_out = id_in;
+			practical_out.append(practical);
+
+			remove(theoretical_out.c_str());
+			remove(practical_out.c_str());
+			
 	    }
 
 	    file1.close();
