@@ -242,7 +242,153 @@ class Course : public Student
 
 class TheoreticalCourse : public Course
 {
+public:
+	void add_course_theoretical(){
+		fstream file_theoretical_1;
+		fstream file_theoretical_2;
+	
+		fstream file1;
+		fstream file2;
 
+		string theoretical = "theoretical.txt";
+		string theoretical_out;
+
+		string id_in;
+		string id;
+		string name;
+
+		string id_course;
+	
+		string math = "math ";
+		string physics = "physics ";
+
+		bool test = false;
+
+		bool math_bool = false;
+		bool physics_bool = false;
+
+		const string math_id = "1";
+		const string physics_id = "2";
+
+		float score;
+
+		int ch;
+
+		int number;
+		int num1 = 1;
+		int num2 = 1;
+
+		int num1_id = 1;
+
+		cout << "Enter the student id :";
+		cin >> id_in;
+	
+		file1.open("listname.txt", ios::in);
+		file2.open("listname.txt", ios::in);
+		
+		if (!file1){
+			cout << "file not found";
+		}else{
+			while(getline(file1, id)){
+				if (num1%2 !=0 && id_in == id){
+					number = num1;
+					test = true;
+				}
+				num1++;
+			}
+			number++;
+			while(getline(file2, name)){
+				if (num2 == number){
+					cout << name << endl;
+				}
+				num2++;
+			}
+		}
+
+		file1.close();
+		file2.close();
+
+		if (test == true)
+		{
+			theoretical_out = id_in;
+			theoretical_out.append(theoretical);
+
+			file_theoretical_1.open(theoretical_out, ios::in);
+			file_theoretical_2.open(theoretical_out, ios::app);
+		
+			if (!file_theoretical_1){
+				cout << "file not found";
+			}else{
+				while(getline(file_theoretical_1, id_course)){
+					if (num1_id%2 !=0){
+						if (id_course == math_id){
+							math_bool = true;
+						}else if (id_course == physics_id){
+							physics_bool = true;
+						}
+					}
+					num1_id++;
+				}
+			}
+
+			
+
+			cout << endl;
+			cout << "\t\t" << "*1) math " << endl;
+			cout << "\t\t" << "*2) physics " << endl;
+			cout << "\t\t" << "*3) exit " << endl;
+			cout << endl;
+			cout << "\t\t" << "Enter your choice: ";
+			cin >> ch;
+			cout << endl;
+
+			switch(ch){
+				case 1:
+					if (math_bool == false){
+						cout << endl << "Enter the score : ";
+						cin >> score;
+						if (score > 20){
+							score = 20;
+						}else if (score < 0){
+							score = 0;
+						}
+						file_theoretical_2 << math_id << endl;
+						file_theoretical_2 << math << ":" << score << endl;
+					}else{
+						cout << "This course has already been added";
+					}
+					break;
+				case 2:
+					if (physics_bool == false){
+						cout << endl << "Enter the score : ";
+						cin >>> score;
+						if (score > 20){
+							score = 20;
+						}else if (score < 0){
+							score = 0;
+						}
+						file_theoretical_2 << physics_id << endl;
+						file_theoretical_2 << physics << ":" << score << endl;
+					}else{
+						cout << "This course has already been added";
+					}
+					break;
+				case 3:
+					system("clear");
+					break;
+				default:
+					cout << "select Your option (1-3)";
+					break;
+			}
+			
+			file_theoretical_1.close();
+			file_theoretical_2.close();
+		}
+		else
+		{
+			cout << "Student not found";
+		}
+	}
 };
 
 class PracticalCourse : public Course
