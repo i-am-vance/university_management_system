@@ -361,7 +361,7 @@ public:
 				case 2:
 					if (physics_bool == false){
 						cout << endl << "Enter the score : ";
-						cin >>> score;
+						cin >> score;
 						if (score > 20){
 							score = 20;
 						}else if (score < 0){
@@ -399,6 +399,9 @@ class PracticalCourse : public Course
 int main(){
     
     Student student1;
+
+	TheoreticalCourse student;
+
     int ch;
 	do {
         system("clear");
@@ -407,7 +410,7 @@ int main(){
         cout << "\t\t" << "*2) show list student " << endl;
 		cout << "\t\t" << "*3) Search a student " << endl;
 		cout << "\t\t" << "*4) Remove the student " << endl;
-		cout << "\t\t" << "*5) Add Course " << endl;
+		cout << "\t\t" << "*5) Add Course theoretical " << endl;
 		cout << "\t\t" << "*6) rmove Course " << endl;
 		cout << "\t\t" << "*7) Search a Course " << endl;
 		cout << "\t\t" << "*8) " << endl;
@@ -431,7 +434,7 @@ int main(){
                 student1.remove_student();
 				break;
 			case 5:
-
+				student.add_course_theoretical();
 				break;
 			case 6:
 
