@@ -543,6 +543,7 @@ int main(){
     Student student;
 
 	TheoreticalCourse student_theoretical;
+	PracticalCourse student_practical;
 
     int ch;
 	do {
@@ -553,7 +554,7 @@ int main(){
 		cout << "\t\t" << "*3) Search a student " << endl;
 		cout << "\t\t" << "*4) Remove the student " << endl;
 		cout << "\t\t" << "*5) Add Course theoretical " << endl;
-		cout << "\t\t" << "*6) rmove Course " << endl;
+		cout << "\t\t" << "*6) Add Course practical " << endl;
 		cout << "\t\t" << "*7) Search a Course " << endl;
 		cout << "\t\t" << "*8) " << endl;
 		cout << "\t\t" << "*9) Exit " << endl;
@@ -579,7 +580,7 @@ int main(){
 				student_theoretical.add_course_theoretical();
 				break;
 			case 6:
-
+				student_practical.add_course_practical();
 				break;
 			case 7:
 
