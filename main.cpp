@@ -393,7 +393,149 @@ public:
 
 class PracticalCourse : public Course
 {
+public:
+	void add_course_practical()
+	{
+		fstream file_practical_1;
+		fstream file_practical_2;
 
+		fstream file1;
+		fstream file2;
+
+		string practical = "practical.txt";
+		string practical_out;
+
+		string id_in;
+		string id;
+		string name;
+
+		string id_course;
+
+		string electrical_lab = "electrical_lab ";
+		string computer_lab = "computer_lab ";
+
+		const string electrical_lab_id = "1";
+		const string computer_lab_id = "2";
+
+		bool test = false;
+
+		bool electrical_lab_bool = false;
+		bool computer_lab_bool = false;
+
+		float score;
+
+		int ch;
+
+		int number;
+		int num1 = 1;
+		int num2 = 1;
+
+		int num1_id = 1;
+
+		cout << "Enter the student id :";
+		cin >> id_in;
+	
+		file1.open("listname.txt", ios::in);
+		file2.open("listname.txt", ios::in);
+
+		if (!file1){
+			cout << "file not found";
+		}else{
+			while(getline(file1, id)){
+				if (num1%2 !=0 && id_in == id){
+					number = num1;
+					test = true;
+				}
+				num1++;
+			}
+			number++;
+			while(getline(file2,name)){
+				if (num2 == number){
+					cout << name << endl;
+				}
+				num2++;
+			}
+		}
+
+		file1.close();
+		file2.close();
+
+		if (test == true)
+		{
+			practical_out = id_in;
+			practical_out.append(practical);
+
+			file_practical_1.open(practical_out, ios::in);
+			file_practical_2.open(practical_out, ios::app);
+
+			if (!file_practical_1){
+				cout << "file not found";
+			}else{
+				while(getline(file_practical_1, id_course)){
+					if (num1_id%2 !=0){
+						if (id_course == electrical_lab_id){
+							electrical_lab = true;
+						}else if (id_course == computer_lab_id){
+							computer_lab_bool = true;
+						}
+					}
+					num1_id++;
+				}
+			}
+
+			cout << endl;
+			cout << "\t\t" << "*1) electrical_lab " << endl;
+			cout << "\t\t" << "*2) computer_lab " << endl;
+			cout << "\t\t" << "*3) exit " << endl;
+			cout << endl;
+			cout << "\t\t" << "Enter your choice: ";
+			cin >> ch;
+			cout << endl;
+
+			switch(ch){
+				case 1:
+					if (electrical_lab_bool == false){
+						cout << endl << "Enter the score : ";
+						cin >> score;
+						if (score > 20){
+							score = 20;
+						}else if (score < 0){
+							score = 0;
+						}
+						file_practical_2 << electrical_lab_id << endl;
+						file_practical_2 << electrical_lab << ":" << score;
+					}else{
+						cout << "This course has already been added";
+					}
+					break;
+				case 2:
+					if (computer_lab_bool == false){
+						cout << endl << "Enter the score : ";
+						cin >> score;
+						if (score > 20){
+							score = 20;
+						}else if (score < 0){
+							score = 0;
+						}
+						file_practical_2 << computer_lab_id << endl;
+						file_practical_2 << computer_lab << ":" << score << endl;
+					}else{
+						cout << "This course has already benn added";
+					}
+					break;
+				case 3:
+					system ("clear");
+					break;
+				default:
+					cout << "select Your option (1-3)";
+					break;
+			}
+			file_practical_1.close();
+			file_practical_2.close();
+		}else{
+			cout << "Student not found";
+		}
+		}
 };
 
 int main(){
