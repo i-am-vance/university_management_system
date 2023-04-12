@@ -540,9 +540,9 @@ public:
 
 int main(){
     
-    Student student1;
+    Student student;
 
-	TheoreticalCourse student;
+	TheoreticalCourse student_theoretical;
 
     int ch;
 	do {
@@ -564,19 +564,19 @@ int main(){
 
 		switch(ch){
 			case 1:
-				student1.Create_student();
+				student.Create_student();
 				break;
 			case 2:
-                student1.student_list();
+                student.student_list();
 				break;
 			case 3:
-                student1.find_student();
+                student.find_student();
 				break;
 			case 4:
-                student1.remove_student();
+                student.remove_student();
 				break;
 			case 5:
-				student.add_course_theoretical();
+				student_theoretical.add_course_theoretical();
 				break;
 			case 6:
 
