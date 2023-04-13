@@ -641,7 +641,7 @@ public:
 
 int main(){
     
-    Student student;
+    Course student;
 
 	TheoreticalCourse student_theoretical;
 	PracticalCourse student_practical;
@@ -656,7 +656,7 @@ int main(){
 		cout << "\t\t" << "*4) Remove the student " << endl;
 		cout << "\t\t" << "*5) Add Course theoretical " << endl;
 		cout << "\t\t" << "*6) Add Course practical " << endl;
-		cout << "\t\t" << "*7) Search a Course " << endl;
+		cout << "\t\t" << "*7) Show Course " << endl;
 		cout << "\t\t" << "*8) " << endl;
 		cout << "\t\t" << "*9) Exit " << endl;
  		cout << endl;
@@ -684,7 +684,7 @@ int main(){
 				student_practical.add_course_practical();
 				break;
 			case 7:
-
+				student.show_course();
 				break;
 			case 8:
 
