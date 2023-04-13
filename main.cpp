@@ -315,6 +315,7 @@ public:
 				}
 				cout << endl;
 			}
+			
 			theoretical_out = id_in;
 			theoretical_out.append(theoretical);
 
@@ -330,7 +331,8 @@ public:
 				cout << endl;
 			}
 		}
-
+		file_practical.close();
+		file_theoretical.close();
 		while(true){
 			cout << "Type exit or q :" << endl;
 			cin >> exit;
