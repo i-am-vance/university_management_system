@@ -237,7 +237,108 @@ public:
 
 class Course : public Student
 {
+public:
+	void show_course(){
+		fstream file_practical;
+		fstream file_theoretical;
 
+		fstream file1;
+		fstream file2;
+
+		string practical = "practical.txt";
+		string practical_out;
+
+		string theoretical = "theoretical.txt";
+		string theoretical_out;
+
+		string id_in;
+		string id;
+		string name;
+
+		string course_practical;
+		string course_theoretical;
+
+		string exit;
+
+		bool test = false;
+
+		int number;
+		int num1 = 1;
+		int num2 = 1;
+
+		int num1_th = 1;
+		int num1_pr = 1;
+
+		system("clear");
+
+		cout << "Enter the student id :";
+		cin >> id_in;
+
+		file1.open("listname.txt", ios::in);
+		file2.open("listname.txt", ios::in);
+
+		if (!file1){
+			cout << "file not found";
+		}else{
+			while(getline(file1, id)){
+				if (num1%2 !=0 && id_in == id){
+					number = num1;
+					test = true;
+				} 
+				num1++;
+			}
+			number++;
+			while(getline(file2, name)){
+				if (num2 == number){
+					cout << name << endl;
+				}
+				num2++;
+			}
+		}
+
+		file1.close();
+		file2.close();
+
+		if (test == true)
+		{
+			practical_out = id_in;
+			practical_out.append(practical);
+
+			file_practical.open(practical_out, ios::in);
+
+			if (!file_practical){
+				cout << "file not found";
+			}else{
+				cout << "practical course :" << endl;
+				while(getline(file_practical, course_practical)){
+					cout << course_practical << endl;
+				}
+				cout << endl;
+			}
+			theoretical_out = id_in;
+			theoretical_out.append(theoretical);
+
+			file_theoretical.open(theoretical_out, ios::in);
+
+			if (!file_theoretical){
+				cout << "file not found";
+			}else{
+				cout << "theoretical course :" << endl;
+				while(getline(file_theoretical, course_theoretical)){
+					cout << course_theoretical << endl;
+				}
+				cout << endl;
+			}
+		}
+
+		while(true){
+			cout << "Type exit or q :" << endl;
+			cin >> exit;
+			if (exit == "exit" || exit == "q"){
+				break;
+			}
+		}
+	}
 };
 
 class TheoreticalCourse : public Course
