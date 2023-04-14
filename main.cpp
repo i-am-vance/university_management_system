@@ -315,7 +315,7 @@ public:
 				}
 				cout << endl;
 			}
-			
+
 			theoretical_out = id_in;
 			theoretical_out.append(theoretical);
 
@@ -606,7 +606,7 @@ public:
 							score = 0;
 						}
 						file_practical_2 << electrical_lab_id << endl;
-						file_practical_2 << electrical_lab << ":" << score;
+						file_practical_2 << electrical_lab << ":" << score << endl;
 					}else{
 						cout << "This course has already been added";
 					}
