@@ -364,14 +364,17 @@ public:
 	
 		string math = "math ";
 		string physics = "physics ";
+		string chemistry = "chemistry "; 
 
 		bool test = false;
 
 		bool math_bool = false;
 		bool physics_bool = false;
+		bool chemistry_bool = false;
 
 		const string math_id = "1";
 		const string physics_id = "2";
+		const string chemistry_id = "3";
 
 		float score;
 
@@ -428,6 +431,8 @@ public:
 							math_bool = true;
 						}else if (id_course == physics_id){
 							physics_bool = true;
+						}else if (id_course == chemistry_id){
+							chemistry_bool = true;
 						}
 					}
 					num1_id++;
@@ -439,7 +444,8 @@ public:
 			cout << endl;
 			cout << "\t\t" << "*1) math " << endl;
 			cout << "\t\t" << "*2) physics " << endl;
-			cout << "\t\t" << "*3) exit " << endl;
+			cout << "\t\t" << "*3) chemistry " << endl;
+			cout << "\t\t" << "*4) exit " << endl;
 			cout << endl;
 			cout << "\t\t" << "Enter your choice: ";
 			cin >> ch;
@@ -477,6 +483,21 @@ public:
 					}
 					break;
 				case 3:
+					if(chemistry_bool == false){
+						cout << endl << "Enter the score : ";
+						cin >> score;
+						if (score > 20){
+							score = 20;
+						}else if (score < 0){
+							score = 0;
+						}
+						file_theoretical_2 << chemistry_id << endl;
+						file_theoretical_2 << chemistry << ":" << score << endl;
+					}else{
+						cout << "This course has already been added";
+					}
+					break;
+				case 4:
 					system("clear");
 					break;
 				default:
