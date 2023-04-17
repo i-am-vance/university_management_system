@@ -558,14 +558,17 @@ public:
 
 		string electrical_lab = "electrical_lab ";
 		string computer_lab = "computer_lab ";
+		string chemistry_lab = "chemistry_lab ";
 
 		const string electrical_lab_id = "1";
 		const string computer_lab_id = "2";
+		const string chemistry_lab_id = "3";
 
 		bool test = false;
 
 		bool electrical_lab_bool = false;
 		bool computer_lab_bool = false;
+		bool chemistry_lab_bool = false;
 
 		float score;
 
@@ -622,6 +625,8 @@ public:
 							electrical_lab = true;
 						}else if (id_course == computer_lab_id){
 							computer_lab_bool = true;
+						}else if (id_course == chemistry_lab_id){
+							chemistry_lab_bool = true;
 						}
 					}
 					num1_id++;
@@ -631,7 +636,8 @@ public:
 			cout << endl;
 			cout << "\t\t" << "*1) electrical_lab " << endl;
 			cout << "\t\t" << "*2) computer_lab " << endl;
-			cout << "\t\t" << "*3) exit " << endl;
+			cout << "\t\t" << "*3) chemistry_lab " << endl;
+			cout << "\t\t" << "*4) exit " << endl;
 			cout << endl;
 			cout << "\t\t" << "Enter your choice: ";
 			cin >> ch;
@@ -669,10 +675,25 @@ public:
 					}
 					break;
 				case 3:
+					if (chemistry_lab_bool == false){
+						cout << endl << "Enter the score : ";
+						cin >> score;
+						if (score > 20){
+							score = 20;
+						}else if (score < 0){
+							score = 0;
+						}
+						file_practical_2 << chemistry_lab_id << endl;
+						file_practical_2 << chemistry_lab << ":" << score << endl;
+					}else{
+						cout << "This course has already benn added";
+					}
+					break;
+				case 4:
 					system ("clear");
 					break;
 				default:
-					cout << "select Your option (1-3)";
+					cout << "select Your option (1-4)";
 					break;
 			}
 			file_practical_1.close();
