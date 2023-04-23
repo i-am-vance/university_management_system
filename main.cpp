@@ -823,7 +823,129 @@ public:
 		}else{
 			cout << "Student not found";
 		}
+	}
+
+	void remove_course_practical()
+	{
+		fstream file_practical_1;
+		fstream file_practical_2;
+
+		fstream file1;
+		fstream file2;
+
+		ofstream ofs1;
+		ofstream ofs2;
+
+		string practical = "practical.txt";
+		string practical_out;
+
+		string id_course_in;
+		string id_course;
+		string name_course;
+
+		string line;
+
+		string id_in;
+		string id;
+		string name;
+
+		char q;
+
+		bool test = false;
+
+		int lineToRemove;
+		int lineNumber = 0;
+
+		int number_course;
+		int num1_course = 1;
+		int num2_course = 1;
+
+		int number;
+		int num1 = 1;
+		int num2 = 1;
+
+		cout << "Enter the student id : ";
+		cin >> id_in;
+
+		file1.open("listname.txt", ios::in);
+		file2.open("listname.txt", ios::in);
+
+		if (!file1){
+			cout << "file not found";
+		}else{
+			while(getline(file1, id)){
+				if (num1%2 !=0 && id_in == id){
+					number = num1;
+					test = true;
+				}
+				num1++;
+			}
+			number++;
+			while(getline(file2, name)){
+				if (num2 == number){
+					cout << name << endl;
+				}
+				num2++;
+			}
 		}
+
+		file1.close();
+		file2.close();
+
+		if (test == true){
+			cout << "Enter the course ID : ";
+			cin >> id_course_in;
+
+			practical_out = id_in;
+			practical_out.append(practical);
+
+			file_practical_1.open(practical_out, ios::in);
+			file_practical_2.open(practical_out, ios::in);
+
+			if (!file_practical_1){
+				cout << "file not found";
+			}else{
+				while(getline(file_practical_1, id_course)){
+					if (num1_course%2 != 0 && id_course_in == id_course){
+						number_course = num1_course;
+					}
+				num1_course++;
+				}
+				lineToRemove = number_course;
+				number_course++;
+				while(getline(file_practical_2, name_course)){
+					if (num2_course == number_course){
+						cout << name_course << endl;
+					}
+					num2_course++;
+				}
+			}
+			cout << "Are you sure about deleting this course? y/n :";
+			cin >> q;
+			if (q == 'y'){
+				ifstream inFile(practical_out);
+				ofstream tempFile("temp.txt");
+
+				while (getline(inFile, line)) {
+					++lineNumber;
+
+					if (lineNumber == lineToRemove || lineNumber == lineToRemove + 1){
+						continue;
+					}
+
+					tempFile << line << endl;
+				}
+				inFile.close();
+				tempFile.close();
+
+				remove(practical_out.c_str());
+				rename("temp.txt", practical_out.c_str());
+			}
+			file_practical_1.close();
+			file_practical_2.close();
+		}
+
+	}
 };
 
 int main(){
