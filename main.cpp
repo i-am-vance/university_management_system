@@ -967,7 +967,8 @@ int main(){
 		cout << "\t\t" << "*6) Add Course practical " << endl;
 		cout << "\t\t" << "*7) Show Course " << endl;
 		cout << "\t\t" << "*8) Remove Course theoretical " << endl;
-		cout << "\t\t" << "*9) Exit " << endl;
+		cout << "\t\t" << "*9) Remove Course practical " << endl;
+		cout << "\t\t" << "*10) Exit " << endl;
  		cout << endl;
 		cout << "\t\t" << "Enter your  choice: " ;
 		cin >> ch;
@@ -999,15 +1000,17 @@ int main(){
 				student_theoretical.remove_course_theoretical();
 				break;
 			case 9:
+				student_practical.remove_course_practical();
+				break;
+			case 10:
 				system("clear"); //i use linux
-				cout << "by by ";
 				break;
 			default:
 				cout << "select Your option (1-9)";
 				break;	
 		}
 
-	} while(ch!=9);
+	} while(ch!=10);
 	
 
 
