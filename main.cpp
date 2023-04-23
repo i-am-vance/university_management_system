@@ -1006,7 +1006,7 @@ int main(){
 				system("clear"); //i use linux
 				break;
 			default:
-				cout << "select Your option (1-9)";
+				cout << "select Your option (1-10)";
 				break;	
 		}
 
