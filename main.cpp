@@ -844,7 +844,7 @@ int main(){
 		cout << "\t\t" << "*5) Add Course theoretical " << endl;
 		cout << "\t\t" << "*6) Add Course practical " << endl;
 		cout << "\t\t" << "*7) Show Course " << endl;
-		cout << "\t\t" << "*8) " << endl;
+		cout << "\t\t" << "*8) Remove Course theoretical " << endl;
 		cout << "\t\t" << "*9) Exit " << endl;
  		cout << endl;
 		cout << "\t\t" << "Enter your  choice: " ;
@@ -874,7 +874,7 @@ int main(){
 				student.show_course();
 				break;
 			case 8:
-
+				student_theoretical.remove_course_theoretical();
 				break;
 			case 9:
 				system("clear"); //i use linux
